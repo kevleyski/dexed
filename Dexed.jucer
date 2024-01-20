@@ -16,6 +16,25 @@
               jucerFormatVersion="1">
   <MAINGROUP id="kHXTgw" name="Dexed">
     <GROUP id="{F12593AE-639A-6F59-5819-ACE25AF86F95}" name="Resources">
+      <FILE id="dOtSsy" name="ButtonUnlabeled_100x60.png" compile="0" resource="1"
+            file="Resources/ui/ButtonUnlabeled_100x60.png"/>
+      <FILE id="qDdLJl" name="LFO_72_52.png" compile="0" resource="1" file="Resources/ui/LFO_72_52.png"/>
+      <FILE id="Bj066F" name="Light_28x28.png" compile="0" resource="1" file="Resources/ui/Light_28x28.png"/>
+      <FILE id="spGdhV" name="Meter_280x16.png" compile="0" resource="1"
+            file="Resources/ui/Meter_280x16.png"/>
+      <FILE id="cSqILo" name="Switch_96x52.png" compile="0" resource="1"
+            file="Resources/ui/Switch_96x52.png"/>
+      <FILE id="bXTjsi" name="Slider_52x52.png" compile="0" resource="1"
+            file="Resources/ui/Slider_52x52.png"/>
+      <FILE id="X47NV4" name="Scaling_72-52.png" compile="0" resource="1"
+            file="Resources/ui/Scaling_72-52.png"/>
+      <FILE id="yDmJ9m" name="Knob_68x68.png" compile="0" resource="1" file="Resources/ui/Knob_68x68.png"/>
+      <FILE id="V3i7uA" name="OperatorEditor_574x436.png" compile="0" resource="1"
+            file="Resources/ui/OperatorEditor_574x436.png"/>
+      <FILE id="u0KDj7" name="Switch_64x64.png" compile="0" resource="1"
+            file="Resources/ui/Switch_64x64.png"/>
+      <FILE id="RDSvL4" name="GlobalEditor_1728x288.png" compile="0" resource="1"
+            file="Resources/ui/GlobalEditor_1728x288.png"/>
       <FILE id="kj2Ow6" name="dexed-logo.png" compile="0" resource="1" file="Resources/ui/dexed-logo.png"/>
       <FILE id="h1sDac" name="HelpButton.png" compile="0" resource="1" file="Resources/ui/HelpButton.png"/>
       <FILE id="oVmTCw" name="HelpButton.svg" compile="0" resource="1" file="Resources/ui/HelpButton.svg"/>
@@ -110,6 +129,12 @@
         <FILE id="TGO2sW" name="sin.h" compile="0" resource="0" file="Source/msfa/sin.h"/>
         <FILE id="SqG02X" name="synth.h" compile="0" resource="0" file="Source/msfa/synth.h"/>
       </GROUP>
+      <GROUP id="{B585BFE4-F913-A99E-818E-7A6B434D9232}" name="MTS-ESP">
+        <FILE id="vVJxkm" name="libMTSClient.cpp" compile="1" resource="0"
+              file="libs/MTS-ESP/Client/libMTSClient.cpp" xcodeResource="0"/>
+        <FILE id="sLtEjn" name="libMTSClient.h" compile="0" resource="0" file="libs/MTS-ESP/Client/libMTSClient.h"
+              xcodeResource="0"/>
+      </GROUP>
       <FILE id="pBbZ9Y" name="Dexed.h" compile="0" resource="0" file="Source/Dexed.h"/>
       <FILE id="Yp2cX4" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
@@ -125,7 +150,7 @@
   </MAINGROUP>
   <EXPORTFORMATS>
     <LINUX_MAKE targetFolder="Builds/Linux" vstLegacyFolder="VST2SDK_DIR" smallIcon="SpSpb4"
-                bigIcon="SpSpb4" extraLinkerFlags="-fPIC" extraCompilerFlags="-I../../libs/tuning-library/include">
+                bigIcon="SpSpb4" extraLinkerFlags="-fPIC" extraCompilerFlags="-I../../libs/tuning-library/include -I../../libs/MTS-ESP/Client -DJUCE_MODAL_LOOPS_PERMITTED=1">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Dexed"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="Dexed"/>
@@ -147,7 +172,7 @@
       </MODULEPATHS>
     </LINUX_MAKE>
     <XCODE_MAC targetFolder="Builds/MacOSX" smallIcon="SpSpb4" bigIcon="SpSpb4"
-               vst3Folder="libs/vst3sdk" extraCompilerFlags="-I../../libs/tuning-library/include -Wno-macro-redefined -Wno-deprecated-declarations -Wno-shorten-64-to-32">
+               vst3Folder="libs/vst3sdk" extraCompilerFlags="-I../../libs/tuning-library/include -I../../libs/MTS-ESP/Client -Wno-macro-redefined -Wno-deprecated-declarations -Wno-shorten-64-to-32 -DJUCE_MODAL_LOOPS_PERMITTED=1">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Dexed"
                        osxCompatibility="10.10 SDK" osxArchitecture="Native" enablePluginBinaryCopyStep="1"/>
@@ -172,7 +197,7 @@
     </XCODE_MAC>
     <VS2017 targetFolder="Builds/VisualStudio2017" windowsTargetPlatformVersion="10.0.16299.0"
             IPPLibrary="Parallel_Static" bigIcon="SpSpb4" smallIcon="SpSpb4"
-            vst3Folder="libs/vst3sdk" extraCompilerFlags="/I../../libs/tuning-library/include">
+            vst3Folder="libs/vst3sdk" extraCompilerFlags="/I../../libs/tuning-library/include -I../../libs/MTS-ESP/Client -DJUCE_MODAL_LOOPS_PERMITTED=1">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="3" generateManifest="1" winArchitecture="x64"
                        debugInformationFormat="ProgramDatabase" enablePluginBinaryCopyStep="0"
@@ -200,7 +225,7 @@
       </MODULEPATHS>
     </VS2017>
     <VS2019 targetFolder="Builds/VisualStudio2019" IPPLibrary="Parallel_Static"
-            extraCompilerFlags="/I../../libs/tuning-library/include" smallIcon="SpSpb4"
+            extraCompilerFlags="/I../../libs/tuning-library/include -I../../libs/MTS-ESP/Client -DJUCE_MODAL_LOOPS_PERMITTED=1" smallIcon="SpSpb4"
             bigIcon="SpSpb4">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="3" generateManifest="1" winArchitecture="x64"
